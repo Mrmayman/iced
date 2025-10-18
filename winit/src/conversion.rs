@@ -1126,6 +1126,30 @@ pub fn user_attention(
     }
 }
 
+/// Converts some [`window::Direction`] into a [`winit::window::ResizeDirection`].
+pub fn resize_direction(
+    resize_direction: window::Direction,
+) -> winit::window::ResizeDirection {
+    match resize_direction {
+        window::Direction::North => winit::window::ResizeDirection::North,
+        window::Direction::South => winit::window::ResizeDirection::South,
+        window::Direction::East => winit::window::ResizeDirection::East,
+        window::Direction::West => winit::window::ResizeDirection::West,
+        window::Direction::NorthEast => {
+            winit::window::ResizeDirection::NorthEast
+        }
+        window::Direction::NorthWest => {
+            winit::window::ResizeDirection::NorthWest
+        }
+        window::Direction::SouthEast => {
+            winit::window::ResizeDirection::SouthEast
+        }
+        window::Direction::SouthWest => {
+            winit::window::ResizeDirection::SouthWest
+        }
+    }
+}
+
 /// Converts some [`window::Icon`] into it's `winit` counterpart.
 ///
 /// Returns `None` if there is an error during the conversion.
